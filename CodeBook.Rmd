@@ -1,19 +1,20 @@
 # Introduction
 
-R code run_analysis.R performs the 5 steps:
+R code run_analysis.R performs 5 steps of the project tasks:
 
-* All data is merged using the rbind() function. Create three data sets: x(test+train), y(test+train), s(test+train). 
-* Only those columns with the mean and standard deviation measures are taken from the whole dataset. After extracting these columns, they are given the correct names, taken from features.txt.
-* Take the activity names and IDs from activity_labels.txt and they are substituted in the dataset.
-* On the whole dataset, those columns with vague column names are corrected.
-* Finally, we generate a new dataset with all the average measures for each subject and activity type (30 subjects * 6 activities = 180 rows). The output file is called final_data.txt, and uploaded to this repository.
+* 1) All data is merged using the rbind() function. Create three data sets: x(test+train), y(test+train), s(test+train). 
+* 2) Mean and standard deviation measures are taken from the entire data_x data set. Columnes are renamed based on info taken from features.txt.
+* 3) Activities IDs in "data_y" dataset are substituted with names taken from activity_labels.txt and they are substituted in the dataset.
+* 4) Final data set is created by merging all three data sets, columns are renamed.
+* 5) Finally, we generate a new dataset with all the average measures for each subject and activity type (30 subjects * 6 activities = 180 rows). The output file is called final_data.txt.
 
 
 # Variables
-* x_trn, y_trn, x_tst, y_tst, s_trn and s_tst contain the data from the downloaded files.
-* data_x, data_y and data_s merge the previous datasets.
-* features contains names for the data_x dataset, which are applied to the 
-* column names stored in mean_std
-* A similar approach is taken with activity names through the activities variable.
-* "merged" merges together data_x, data_y and data_s.
-* final_data contains averages which will be later stored in a .txt file. ddply() from the plyr package is used to apply colMeans() and ease the development.
+
+* x_trn, y_trn, x_tst, y_tst, s_trn and s_tst -  contain raw data from the downloaded files.
+* data_x, data_y and data_s - merged data of train and test tables for each group.
+* features  - contains names for the data_x dataset, which are applied to the 
+* mean_std - column names.
+* activities - activities anmes.
+* merged -  merges  data_x, data_y and data_s datasets.
+* final_data - average of each variable for each activity and each subject.
